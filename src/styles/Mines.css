@@ -1,0 +1,141 @@
+.app-wrapper1 {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #0E212E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .navbar-top1 {
+    background-color: #2d3748;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .main-layout1 {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .left-navbar1 {
+    margin-left: 20px;
+    height: 650px;
+    width: 350px;
+    background-color: #304553;
+    padding: 15px;
+  }
+  
+  label {
+    margin: 15px;
+    color: #B1BAD3;
+    display: inline-block;
+  }
+  
+  input{
+    padding: 7px;
+    width: 300px;
+    height: 30px;
+    margin: 15px;
+    margin-top: 0;
+    background-color: #0E212E;
+    color: white;
+    border: none;
+  }
+  
+  #half1 {
+    margin-left: 120px;
+    height: 30px;
+    width: 50px;
+    background-color: #1d384a;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  #double1 {
+    margin-left: 10px;
+    height: 30px;
+    width: 50px;
+    background-color: #1d384a;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  #bet1 {
+    margin-top: 15px;
+    width: 308px;
+    height: 50px;
+    background-color: #00E700;
+    border: none;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .container1 {
+    padding-top: 10px;
+    height: 680px;
+    width: 900px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    row-gap: 15px;
+    column-gap: 15px;
+  }
+  
+  .child111 {
+    height: 120px;
+    width: 120px;
+    background-color: #304553;
+    border-radius: 10%;
+    box-shadow: 0 5px #213743;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 55px;
+  }
+  
+  .child1111 {
+    background-color: #0E212E;
+    grid-row: 1 / 7;
+    grid-column: 1 / 2;
+  }
+  
+  .child21 {
+    background-color: #0E212E;
+    grid-row: 1 / 7;
+    grid-column: 7 / 8;
+  }
+  
+  .gem1 {
+    background-color: #28a745 !important;
+  }
+  
+  .mine1 {
+    background-color: #c0392b !important;
+  }
+  
+  .earnings-display1 {
+    padding: 7px;
+  }
+  .earnings-box1 {
+    margin-left: 15px;
+  }
+  .child111:hover {
+    cursor: pointer;
+    background-color: #3f5a6e;
+    box-shadow: 0 0 10px #00e700;
+  }
+  

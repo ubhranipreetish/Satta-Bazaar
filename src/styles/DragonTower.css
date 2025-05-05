@@ -1,0 +1,196 @@
+
+  .app-wrapper2 {
+    background-color: #1A2C38;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    padding: 10px;
+  }
+  .navbar-top2 {
+    background-color: #2d3748;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .app2 {
+    margin-left: -90px;
+    flex: 1;
+    background-image: url('/images/bg_image.png');
+    background-size: contain; 
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .left-navbar2 {
+    margin-left: 50px;
+    width: 350px;
+    background-color: #213743;
+    padding: 20px;
+    height: 100vh;
+  }
+  
+  label {
+    margin: 15px;
+    color: #B1BAD3;
+    display: inline-block;
+  }
+  
+  input{
+    padding: 7px;
+    width: 300px;
+    height: 30px;
+    margin: 15px;
+    margin-top: 0;
+    background-color: #0E212E;
+    color: white;
+    border: none;
+  }
+  select {
+    padding: 7px;
+    width: 315px;
+    height: 44px;
+    margin: 15px;
+    margin-top: 0;
+    background-color: #0E212E;
+    color: white;
+    border: none;
+  
+  }
+  
+  #half2 {
+    margin-left: 120px;
+    height: 30px;
+    width: 50px;
+    background-color: #283E4B;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  #double2 {
+    margin-left: 10px;
+    height: 30px;
+    width: 50px;
+    background-color: #283E4B;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  #bet2 {
+    margin-top: 15px;
+    width: 313px;
+    height: 50px;
+    background-color: #00E700;
+    border: none;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  
+  .controls2 {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .controls2 select,
+  .controls2 button {
+    padding: 8px 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .controls2 button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+  }
+  
+  
+  
+  .tower2 {
+    margin-top: 407px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 8px;
+    padding-top: 10px;
+    height: 300px;
+    width: 530px;
+    position: relative;
+    z-index: 10;
+    background-color: transparent;
+  }
+  
+  
+  .row2 {
+    
+    display: grid;
+    flex: 1;
+    gap: 8px;
+    
+  }
+  
+  .tile2 {
+    height: 50px;
+  
+    background-image: url('/images/Tile.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    border-radius: 5%;
+    font-size: 40px;
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out, background-color 0.3s;
+  }
+  
+  .tile2.available2 {
+    background-image: url('/images/available_tile.png') !important; 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+  }
+  
+  .tile2:hover {
+    transform: scale(1.05);
+  }
+  
+  .tile2.dragon2 {
+    background-image: url('/images/dragon_tile.png') !important; 
+    background-size:auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    box-sizing: border-box;
+    border: 3px solid #E90F3D;
+  }
+  
+  .tile2.safe2 {
+    background-color: #1A2C38;
+    color: white;
+  }
+  
+  
