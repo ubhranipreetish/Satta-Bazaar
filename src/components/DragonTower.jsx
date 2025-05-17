@@ -78,7 +78,16 @@ function DragonTower() {
   const getMultiplier = () => {
     if (gameOver) return "0.00";
     const base = difficulties[difficulty];
-    return (1.4 ** selected.length).toFixed(2);
+    if (base == 4){
+      return (1.4 ** selected.length).toFixed(2);
+    }
+    else if (base == 3){
+      return (1.6 ** selected.length).toFixed(2);
+    }
+    else {
+      return (1.8 ** selected.length).toFixed(2);
+    }
+
   };
 
   const earnings = (amount * getMultiplier()).toFixed(2);
