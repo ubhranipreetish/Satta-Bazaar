@@ -13,13 +13,17 @@ const mineSound = new Howl({ src: ["/sounds/mine.mp3"] });
 const generateBoard = (mineCount) => {
   const board = Array.from({ length: TILE_COUNT }, () => ({ isMine: false, revealed: false }));
   let minesPlaced = 0;
+  let arrr = []
   while (minesPlaced < mineCount) {
     const index = Math.floor(Math.random() * TILE_COUNT);
     if (!board[index].isMine) {
       board[index] = { ...board[index], isMine: true };
       minesPlaced++;
+      arrr.push(index)
     }
   }
+  arrr.sort()
+  console.log(arrr)
   return board;
 };
 
@@ -34,6 +38,7 @@ export default function Mines() {
   const [gameOver, setGameOver] = useState(false);
   const [revealedCount, setRevealedCount] = useState(0);
   const [earnings, setEarnings] = useState(0);
+  const [multiplier, setMultiplier] = useState('1.00');
   const [cashedOut, setCashedOut] = useState(false);
 
   const startGame = (e) => {
@@ -48,37 +53,70 @@ export default function Mines() {
     setGameOver(false);
     setRevealedCount(0);
     setEarnings(0);
+    setMultiplier('1.00');
     setCashedOut(false);
   };
   
 
   const calculateEarnings = (revealed, bet, totalTiles, mines) => {
     const safeTiles = totalTiles - mines;
-    if (revealed === 0) return 0;
-    const multiplier = Math.pow((totalTiles / safeTiles), revealed) * 0.96;
-    return (bet * multiplier).toFixed(2);
+    if (revealed === 0) return bet;
+    const multiplier2 = Math.pow((totalTiles / safeTiles), revealed) * 0.96;
+    setMultiplier(String(multiplier2.toFixed(2)))
+    return (bet * multiplier2).toFixed(2);
   };
+
+  // const revealTile = (index) => {
+  //   if (!started || board[index].revealed || gameOver || cashedOut) return;
+
+  //   const updatedBoard = [...board];
+  //   updatedBoard[index] = { ...updatedBoard[index], revealed: true };
+
+  //   if (updatedBoard[index].isMine) {
+  //     mineSound.play();
+  //     setGameOver(true);
+  //     setEarnings(0);
+  //   } else {
+  //     gemSound.play();
+  //     const newRevealed = revealedCount + 1;
+  //     setRevealedCount(newRevealed);
+  //     const newEarnings = calculateEarnings(newRevealed, amount, TILE_COUNT, mineCount);
+  //     setEarnings(newEarnings);
+  //   }
+    
+
+  //   setBoard(updatedBoard);
+  // };
 
   const revealTile = (index) => {
     if (!started || board[index].revealed || gameOver || cashedOut) return;
-
+  
     const updatedBoard = [...board];
     updatedBoard[index] = { ...updatedBoard[index], revealed: true };
-
+  
     if (updatedBoard[index].isMine) {
       mineSound.play();
+  
+      // Reveal all tiles
+      const fullyRevealedBoard = updatedBoard.map(tile => ({
+        ...tile,
+        revealed: true
+      }));
+  
+      setBoard(fullyRevealedBoard);
       setGameOver(true);
       setEarnings(0);
+      setMultiplier('0.00')
     } else {
       gemSound.play();
       const newRevealed = revealedCount + 1;
       setRevealedCount(newRevealed);
       const newEarnings = calculateEarnings(newRevealed, amount, TILE_COUNT, mineCount);
       setEarnings(newEarnings);
+      setBoard(updatedBoard); // <- This was missing in your original for non-mine click
     }
-
-    setBoard(updatedBoard);
   };
+  
 
   const handleHalf = (e) => {
     e.preventDefault();
@@ -139,6 +177,8 @@ export default function Mines() {
                 <input id="bet1" type="submit" value="Bet" />
             ) : (
                 <div className="earnings-display1">
+                <label>Multiplier:</label>
+                <div className="earnings-box1">{multiplier}x</div>
                 <label>Potential Earnings:</label>
                 <div className="earnings-box1">${earnings}</div>
                 <button
