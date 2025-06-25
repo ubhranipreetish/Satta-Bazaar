@@ -40,8 +40,8 @@ export default function Mines() {
     mineSound.current.preload = "auto";
 
     const unlockAudio = () => {
-      gemSound.current.play().catch(() => {});
-      mineSound.current.play().catch(() => {});
+      gemSound.current.load(); 
+      mineSound.current.load(); 
       window.removeEventListener("touchstart", unlockAudio);
     };
     window.addEventListener("touchstart", unlockAudio, { once: true });
