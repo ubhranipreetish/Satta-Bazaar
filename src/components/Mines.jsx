@@ -75,7 +75,8 @@ export default function Mines() {
     updatedBoard[index] = { ...updatedBoard[index], revealed: true };
   
     if (updatedBoard[index].isMine) {
-      mineSound.play();
+      const mineSound = new Audio('/sounds/mine.mp3');
+      mineSound.play().catch(e => console.warn("Mine sound failed", e));
   
       const fullyRevealedBoard = updatedBoard.map(tile => ({
         ...tile,
@@ -85,16 +86,19 @@ export default function Mines() {
       setBoard(fullyRevealedBoard);
       setGameOver(true);
       setEarnings(0);
-      setMultiplier('0.00')
+      setMultiplier('0.00');
     } else {
-      gemSound.play();
+      const gemSound = new Audio('/sounds/gem.mp3');
+      gemSound.play().catch(e => console.warn("Gem sound failed", e));
+  
       const newRevealed = revealedCount + 1;
       setRevealedCount(newRevealed);
       const newEarnings = calculateEarnings(newRevealed, amount, TILE_COUNT, mineCount);
       setEarnings(newEarnings);
-      setBoard(updatedBoard); 
+      setBoard(updatedBoard);
     }
   };
+  
   
 
   const handleHalf = (e) => {
@@ -170,7 +174,7 @@ export default function Mines() {
                         id="cashout"
                         onClick={handleCashOut}
                     >
-                        Cash Out
+                        {gameOver ? 'Reset' : 'Cash Out'}
                     </button>
                   
                   </div>
