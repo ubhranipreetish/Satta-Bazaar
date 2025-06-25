@@ -1,196 +1,242 @@
 
-  .app-wrapper2 {
-    background-color: #1A2C38;
-    display: flex;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    padding: 10px;
-  }
-  .navbar-top2 {
-    background-color: #2d3748;
-    padding: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .app2 {
-    margin-left: -90px;
-    flex: 1;
-    background-image: url('/images/bg_image.png');
-    background-size: contain; 
-    background-repeat: no-repeat;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
-  
-  .left-navbar2 {
-    margin-left: 50px;
-    width: 350px;
-    background-color: #213743;
-    padding: 20px;
-    height: 100vh;
-  }
-  
-  label {
-    margin: 15px;
-    color: #B1BAD3;
-    display: inline-block;
-  }
-  
-  input{
-    padding: 7px;
-    width: 300px;
-    height: 30px;
-    margin: 15px;
-    margin-top: 0;
-    background-color: #0E212E;
-    color: white;
-    border: none;
-  }
-  select {
-    padding: 7px;
-    width: 315px;
-    height: 44px;
-    margin: 15px;
-    margin-top: 0;
-    background-color: #0E212E;
-    color: white;
-    border: none;
-  
-  }
-  
-  #half2 {
-    margin-left: 120px;
-    height: 30px;
-    width: 50px;
-    background-color: #283E4B;
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-  }
-  
-  #double2 {
-    margin-left: 10px;
-    height: 30px;
-    width: 50px;
-    background-color: #283E4B;
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-  }
-  
-  #bet2 {
-    margin-top: 15px;
-    width: 313px;
-    height: 50px;
-    background-color: #00E700;
-    border: none;
-    color: black;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  
-  .controls2 {
-    margin: 20px 0;
-    display: flex;
+.main-layout2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  width: 100vw;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  background-image: url('/images/bg_image2.png');
+}
+
+@media (max-width: 1050px) {
+  .main-layout2 {
     flex-direction: column;
-    gap: 10px;
     align-items: center;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
   }
+}
+
   
-  .controls2 select,
-  .controls2 button {
-    padding: 8px 16px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    background-color: #333;
-    color: white;
-    cursor: pointer;
+
+  
+.right-navbar2 {
+  background-color: #304553;
+  padding: 1rem;
+  flex: 1;
+  max-width: 320px;
+  box-sizing: border-box;
+  height: auto;
+  width: 100%;
+  margin: 1rem;
+}
+
+  
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+form label {
+  margin: 1rem;
+  color: #B1BAD3;
+  align-self: flex-start;
+}
+
+form input {
+  padding: 0.5rem;
+  width: 90%;
+  height: 2rem;
+  background-color: #0E212E;
+  color: white;
+  border: none;
+}
+
+.half-double2 {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+#half2,
+#double2 {
+  height: 2.5rem;
+  width: 25%;
+  background-color: #1d384a;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#bet2 {
+  margin-top: 1rem;
+  height: 3rem;
+  width: 90%;
+  background-color: #00E700;
+  border: none;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+form select {
+  padding: 0.5rem;
+  width: 95%;
+  height: 3rem;
+  background-color: #0E212E;
+  color: white;
+  border: none;
+
+}
+.earnings-display2 {
+  padding: 7px;
+  width: 100%;
+}
+.earnings-box2 {
+  margin: 0.5rem;
+  margin-left: 15px;
+}
+  
+#cashout2 {
+  margin-top: 1rem;
+  height: 3rem;
+  width: 100%;
+  background-color: #00E700;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+  
+.container2 {
+  background-image: url('/images/bg_image3.png');
+  background-size: contain; 
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 700px;
+  width: 100%;
+  max-width: 600px; 
+  padding: 11rem 5rem 2rem 5rem;
+  box-sizing: border-box;
+  
+}
+  
+.tower2 {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 5px;
+  width: 100%;
+  max-width: 440px;
+  box-sizing: border-box;
+  background-color: transparent;
+}
+
+@media (max-width: 640px) {
+  .container2 {
+    padding: 11rem 4.5rem 2rem 4.5rem; 
   }
-  
-  .controls2 button:disabled {
-    background-color: #555;
-    cursor: not-allowed;
-  }
-  
-  
-  
+
   .tower2 {
-    margin-top: 407px;
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 8px;
-    padding-top: 10px;
-    height: 300px;
-    width: 530px;
-    position: relative;
-    z-index: 10;
-    background-color: transparent;
+    max-width: 100%;
+    width: 100%;
   }
-  
-  
-  .row2 {
-    
-    display: grid;
-    flex: 1;
-    gap: 8px;
-    
+}
+
+@media (max-width: 580px){
+  .container2 {
+    padding: 11rem 3rem 2rem 3rem;
   }
+}
+
+
+.row2 {
   
+  display: grid;
+  flex: 1;
+  gap: 5px;
+  
+}
+
+.tile2 {
+  height: 45px;
+  
+  background-image: url('/images/Tile.png'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  border-radius: 5%;
+  font-size: clamp(1rem, 4vw, 2.5rem);
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out, background-color 0.3s;
+}
+
+@media (max-width: 530px){
+  .container2 {
+    padding: 12rem 1.5rem 2rem 1.5rem;
+  }
   .tile2 {
-    height: 50px;
-  
-    background-image: url('/images/Tile.png'); 
+    height: 42px;
+  }
+}
+@media (max-width: 500px){
+  .container2 {
+    padding: 12rem 1.5rem 2rem 1.5rem;
+  }
+  .tile2 {
+    height: 40px;
+  }
+}
+@media (max-width: 470px){
+  .container2 {
+    padding: 10.5rem 0 2rem 0;
     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: white;
-    border-radius: 5%;
-    font-size: 40px;
-    cursor: pointer;
-    transition: transform 0.1s ease-in-out, background-color 0.3s;
   }
-  
-  .tile2.available2 {
-    background-image: url('/images/available_tile.png') !important; 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: white;
+  .tower2 {
+    border: 6px solid #57687A;
+    padding: 1rem 0.5rem;
   }
-  
-  .tile2:hover {
-    transform: scale(1.05);
+  .tile2 {
+    height: 42px;
   }
-  
-  .tile2.dragon2 {
-    background-image: url('/images/dragon_tile.png') !important; 
-    background-size:auto;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: white;
-    box-sizing: border-box;
-    border: 3px solid #E90F3D;
-  }
-  
-  .tile2.safe2 {
-    background-color: #1A2C38;
-    color: white;
-  }
-  
+}
+
+
+.tile2.available2 {
+  background-image: url('/images/available_tile.png') !important; 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+.tile2:hover {
+  transform: scale(1.05);
+}
+
+.tile2.dragon2 {
+  background-image: url('/images/dragon_tile.png') !important; 
+  background-size:auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  box-sizing: border-box;
+  border: 3px solid #E90F3D;
+}
+
+.tile2.safe2 {
+  background-color: #1A2C38;
+  color: white;
+}
   

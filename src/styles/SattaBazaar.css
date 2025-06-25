@@ -48,6 +48,7 @@
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
   }
   
   .card .image {
@@ -82,13 +83,5 @@
     color: #a0aec0;
   }
   
-  /* Footer */
-  .footer {
-    background-color: #2d3748;
-    text-align: center;
-    padding: 16px;
-    margin-top: 40px;
-    font-size: 0.875rem;
-    color: #a0aec0;
-  }
+
   

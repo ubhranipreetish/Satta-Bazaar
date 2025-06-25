@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import '../styles/DragonTower.css'
 import Navbar from "./Navbar";
 import { useWallet } from "../contexts/WalletContext"; 
+import Footer from "./Footer";
 
 
 
@@ -90,85 +91,24 @@ function DragonTower() {
 
   };
 
-  const earnings = (amount * getMultiplier()).toFixed(2);
+  const multiplier = getMultiplier();
+  const earnings = (amount * parseFloat(multiplier)).toFixed(2);
+
 
   return (
     <>
     <Navbar />
-    <div className = 'app-wrapper2' style={{ display: "flex" }}>
-      <div className="left-navbar2">
-        <form onSubmit={startGame}>
-          <label htmlFor="amount2">Bet Amount</label>
-          <br />
-          <input
-            id="amount2"
-            type="number"
-            value={amount}
-            onChange={(e) => setAmount(parseFloat(e.target.value))}
-            placeholder="Enter Amount"
-            step="any"
-            disabled={started}
-            required
-          />
-          <br />
-          <button id="half2" onClick={handleHalf} disabled={started}>1/2</button>
-          <button id="double2" onClick={handleDouble} disabled={started}>2x</button>
-          <br />
-          <label htmlFor="difficulty2">Difficulty Level</label>
-          <br />
-          <select
-            id="difficulty2"
-            value={difficulty}
-            onChange={(e) => setDifficulty(e.target.value)}
-            disabled={started}
-            required
-          >
-            {Object.keys(difficulties).map((level) => (
-              <option key={level}>{level}</option>
-            ))}
-          </select>
-          <br />
-          {!started ? (
-              <input id="bet2" type="submit" value="Bet" />
-            ) : (
-              <div className="earnings-display2">
-                <label>Multiplier:</label>
-                <div className="earnings-box2">{getMultiplier()}x</div>
-
-                <label style={{ marginTop: "10px" }}>Potential Earnings:</label>
-                <div className="earnings-box2">${earnings}</div>
-
-                <button
-                  style={{
-                    marginTop: '15px',
-                    width: '313px',
-                    height: '50px',
-                    backgroundColor: '#00E700',
-                    border: 'none',
-                    color: 'black',
-                    fontWeight: 'bold',
-                    cursor: 'pointer',
-                  }}
-                  onClick={handleCashOut}
-                >
-                  {gameOver ? 'Reset' : 'Cash Out'}
-                </button>
-              </div>
-            )}
-
-        </form>
-      </div>
-
-      <div className="app2">
+    <div className = 'main-layout2'>
+      <div className="container2">
         <div className="tower2">
             {Array.from({ length: 10 }).map((_, row) => (
               <div
-              className="row2"
-              key={row}
-              style={{
-                gridTemplateColumns: `repeat(${difficulties[difficulty]}, 1fr)`,
-              }}
-            >
+                className="row2"
+                key={row}
+                style={{
+                  gridTemplateColumns: `repeat(${difficulties[difficulty]}, 1fr)`,
+                }}
+              >
               
               {Array.from({ length: difficulties[difficulty] }).map((_, index) => {
                 const isRevealed = selected.length > row || gameOver || cashOut;
@@ -207,7 +147,57 @@ function DragonTower() {
 
 
       </div>
+      <div className="right-navbar2">
+        <form onSubmit={startGame}>
+          <label htmlFor="amount2">Bet Amount</label>
+          <input
+            id="amount2"
+            type="number"
+            value={amount}
+            onChange={(e) => setAmount(parseFloat(e.target.value))}
+            placeholder="Enter Amount"
+            step="any"
+            disabled={started}
+            required
+          />
+          <div className="half-double2">
+                <button id="half2" onClick={handleHalf}>1/2</button>
+                <button id="double2" onClick={handleDouble}>2x</button>
+              </div>
+          <label htmlFor="difficulty2">Difficulty Level</label>
+          <select
+            id="difficulty2"
+            value={difficulty}
+            onChange={(e) => setDifficulty(e.target.value)}
+            disabled={started}
+            required
+          >
+            {Object.keys(difficulties).map((level) => (
+              <option key={level}>{level}</option>
+            ))}
+          </select>
+          {!started ? (
+              <input id="bet2" type="submit" value="Bet" />
+            ) : (
+              <div className="earnings-display2">
+                    <label>Multiplier:</label>
+                    <div className="earnings-box2">{multiplier}x</div>
+                    <label>Potential Earnings:</label>
+                    <div className="earnings-box2">${earnings}</div>
+                    <button
+                        id="cashout"
+                        onClick={handleCashOut}
+                    >
+                        {gameOver ? 'Reset' : 'Cash Out'}
+                    </button>
+                  
+                  </div>
+            )}
+
+        </form>
+      </div>
     </div>
+    <Footer />
     </>
   );
 }

@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "../styles/SattaBazaar.css";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 export default function SattaBazaar() {
   const navigate = useNavigate();
@@ -17,13 +18,11 @@ export default function SattaBazaar() {
   return (
     <div className="satta-container">
       <Navbar />
-      {/* Hero Section */}
       <div className="text-center">
         <h1>Welcome to Satta Bazaar</h1>
         <p>Choose a game and start playing instantly</p>
       </div>
 
-      {/* Games Grid */}
       <div className="grid-container">
         <div className="card" onClick={goToMines}>
           <div className="image green"></div>
@@ -42,10 +41,7 @@ export default function SattaBazaar() {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="footer">
-        &copy; 2025 SattaBazaar.com - All rights reserved
-      </footer>
+      <Footer />
     </div>
   );
 }
