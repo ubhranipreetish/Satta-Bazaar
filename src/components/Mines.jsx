@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Tile from "./Tile";
 import { Howl } from "howler";
 import "../styles/Mines.css"
@@ -8,8 +8,7 @@ import Footer from "./Footer";
 
 
 const TILE_COUNT = 25;
-const gemSound = new Howl({ src: ["/sounds/gem.mp3"] });
-const mineSound = new Howl({ src: ["/sounds/mine.mp3"] });
+
 
 const generateBoard = (mineCount) => {
   const board = Array.from({ length: TILE_COUNT }, () => ({ isMine: false, revealed: false }));
@@ -29,6 +28,24 @@ const generateBoard = (mineCount) => {
 };
 
 export default function Mines() {
+
+  const gemSound = useRef(null);
+  const mineSound = useRef(null);
+
+  useEffect(() => {
+    gemSound.current = new Audio("/sounds/gem.mp3");
+    mineSound.current = new Audio("/sounds/mine.mp3");
+
+    gemSound.current.preload = "auto";
+    mineSound.current.preload = "auto";
+
+    const unlockAudio = () => {
+      gemSound.current.play().catch(() => {});
+      mineSound.current.play().catch(() => {});
+      window.removeEventListener("touchstart", unlockAudio);
+    };
+    window.addEventListener("touchstart", unlockAudio, { once: true });
+  }, []);
 
   const { wallet, deductMoney, addMoney } = useWallet();
 
@@ -75,27 +92,32 @@ export default function Mines() {
     updatedBoard[index] = { ...updatedBoard[index], revealed: true };
   
     if (updatedBoard[index].isMine) {
-      const mineSound = new Audio('/sounds/mine.mp3');
-      mineSound.play().catch(e => console.warn("Mine sound failed", e));
-  
+      if (mineSound.current) {
+        mineSound.current.currentTime = 0;
+        mineSound.current.play().catch(() => {});
+      }
+    
       const fullyRevealedBoard = updatedBoard.map(tile => ({
         ...tile,
         revealed: true
       }));
-  
+    
       setBoard(fullyRevealedBoard);
       setGameOver(true);
       setEarnings(0);
-      setMultiplier('0.00');
+      setMultiplier("0.00");
     } else {
-      const gemSound = new Audio('/sounds/gem.mp3');
-      gemSound.play().catch(e => console.warn("Gem sound failed", e));
-  
+      if (gemSound.current) {
+        gemSound.current.currentTime = 0;
+        gemSound.current.play().catch(() => {});
+      }
+    
       const newRevealed = revealedCount + 1;
       setRevealedCount(newRevealed);
       const newEarnings = calculateEarnings(newRevealed, amount, TILE_COUNT, mineCount);
       setEarnings(newEarnings);
       setBoard(updatedBoard);
+    
     }
   };
   
