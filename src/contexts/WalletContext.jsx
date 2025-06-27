@@ -1,10 +1,10 @@
-// src/contexts/WalletContext.jsx
+
 import React, { createContext, useContext, useState } from "react";
 
 const WalletContext = createContext(null);
 
 export function WalletProvider({ children }) {
-  const [wallet, setWallet] = useState(100); // Initial balance for test
+  const [wallet, setWallet] = useState(100); 
 
   const addMoney = (amount) => setWallet((prev) => prev + amount);
 

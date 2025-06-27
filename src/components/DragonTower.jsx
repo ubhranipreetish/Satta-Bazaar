@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import '../styles/DragonTower.css'
 import Navbar from "./Navbar";
-import { useWallet } from "../contexts/WalletContext"; 
+import { useWallet } from "../contexts/WalletContext";
 import Footer from "./Footer";
 
 
