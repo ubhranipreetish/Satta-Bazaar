@@ -161,8 +161,8 @@ function DragonTower() {
             required
           />
           <div className="half-double2">
-                <button id="half2" onClick={handleHalf}>1/2</button>
-                <button id="double2" onClick={handleDouble}>2x</button>
+                <button type="button" id="half2" onClick={handleHalf}>1/2</button>
+                <button type="button" id="double2" onClick={handleDouble}>2x</button>
               </div>
           <label htmlFor="difficulty2">Difficulty Level</label>
           <select

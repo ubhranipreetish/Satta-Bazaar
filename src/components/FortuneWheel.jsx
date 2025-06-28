@@ -284,59 +284,37 @@ const FortuneWheel = () => {
             <div className="container3">
                 <div className="wheel-wrapper">
                     <div className="pointer" />
-                    <svg
-                        width={radius * 2}
-                        height={radius * 2}
-                        className="wheel-svg"
-                        ref={wheelRef}
-                        style={{ transform: `rotate(${rotation}deg)` }}
-                        >
-
-                        { !earningsDisplay ? (
-                        <circle
-                            cx={radius}
-                            cy={radius}
-                            r={radius / 3}
-                            stroke="#c0c0c0"
-                            strokeWidth="3"
-                            fill="none"
-                        />
-                        ) : (
-                        <foreignObject
-                            x={radius - radius / 3}
-                            y={radius - radius / 3}
-                            width={radius * 2 / 3}
-                            height={radius * 2 / 3}
-                        >
-                            <div
-                                xmlns="http://www.w3.org/1999/xhtml"
-                                className="earn-box"
-                                style={{
-                                    width: "100%",
-                                    height: "100%",
-                                    backgroundColor: "#142D39",
-                                    border:"5px solid",
-                                    boxSizing:"border-box",
-                                    borderRadius: "50%",
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    fontWeight: "bold",
-                                    color: "#00EB00",
-                                    transform: `rotate(${-rotation}deg)`, 
-                                }}
-                                >
-                                <div style={{borderBottom:'3px solid #284654'}}>{result}</div>
-                                <div>${earnings.toFixed(2)}</div>
-                            </div>
-                        </foreignObject>
-                        )}
 
 
-                        {createSegments()}
-                    </svg>
-                </div>
+
+  
+  <svg
+    width={radius * 2}
+    height={radius * 2}
+    className="wheel-svg"
+    ref={wheelRef}
+    style={{ transform: `rotate(${rotation}deg)` }}
+  >
+    {createSegments()}
+    <circle
+      cx={radius}
+      cy={radius}
+      r={radius / 3}
+      stroke="#c0c0c0"
+      strokeWidth="3"
+      fill="none"
+    />
+  </svg>
+
+  {earningsDisplay && (
+    <div className="earnings-overlay">
+      <div className="earnings-content earn-box">
+        <div  style={{borderBottom:'3px solid #284654'}}>{result}</div>
+        <div>${earnings.toFixed(2)}</div>
+      </div>
+    </div>
+  )}
+</div>
                     {
                         (difficulty == 'hard') ? (
                             <div className="multipliers">
@@ -371,8 +349,8 @@ const FortuneWheel = () => {
                     required
                 />
                 <div className="half-double2">
-                        <button id="half2" onClick={handleHalf}>1/2</button>
-                        <button id="double2" onClick={handleDouble}>2x</button>
+                        <button type="button" id="half2" onClick={handleHalf}>1/2</button>
+                        <button type="button" id="double2" onClick={handleDouble}>2x</button>
                     </div>
                 <label htmlFor="difficulty2">Risk</label>
                 <select

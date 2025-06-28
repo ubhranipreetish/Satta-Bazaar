@@ -60,6 +60,32 @@
     z-index: 10;
 }
 
+.earnings-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 33%; 
+    height: 33%;
+    transform: translate(-50%, -50%);
+    background-color: #142D39;
+    border: 5px solid #284654;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    z-index: 10;
+  }
+  
+.earnings-content {
+    color: #00EB00;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
 .earn-box {
     font-size: 1.5rem;
 }

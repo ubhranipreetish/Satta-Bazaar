@@ -171,8 +171,8 @@ export default function Mines() {
                   required
               />
               <div className="half-double">
-                <button id="half1" onClick={handleHalf}>1/2</button>
-                <button id="double1" onClick={handleDouble}>2x</button>
+                <button type="button" id="half1" onClick={handleHalf}>1/2</button>
+                <button type="button" id="double1" onClick={handleDouble}>2x</button>
               </div>
               <label htmlFor="no-of-mines1">Mines</label>
               <input
